@@ -1,0 +1,347 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { Playfair_Display, Cormorant_Garamond, Poppins } from "next/font/google";
+import styles from "./AnaVitoriaLanding.module.css";
+import Image from 'next/image';
+
+// ---- Fonts (troque pelos imports em app/layout.tsx se preferir carregar globalmente) ----
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
+// ---- Dados do carrossel de resultados (troque pelos casos reais depois) ----
+const results = [
+  { id: 1, label: "Antes / Depois — Cliente 1" },
+  { id: 2, label: "Antes / Depois — Cliente 2" },
+  { id: 3, label: "Antes / Depois — Cliente 3" },
+  { id: 4, label: "Antes / Depois — Cliente 4" },
+];
+
+function useSlidesPerView() {
+  const [perView, setPerView] = useState(3);
+
+  useEffect(() => {
+    function calc() {
+      const w = window.innerWidth;
+      if (w <= 640) setPerView(1);
+      else if (w <= 860) setPerView(2);
+      else setPerView(3);
+    }
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, []);
+
+  return perView;
+}
+
+export default function AnaVitoriaLanding() {
+  const perView = useSlidesPerView();
+  const [index, setIndex] = useState(0);
+  const trackWrapRef = useRef<HTMLDivElement>(null);
+  const [slideWidth, setSlideWidth] = useState(0);
+
+  const maxIndex = Math.max(0, results.length - perView);
+
+  useEffect(() => {
+    if (index > maxIndex) setIndex(maxIndex);
+  }, [maxIndex, index]);
+
+  useEffect(() => {
+    function measure() {
+      const wrap = trackWrapRef.current;
+      if (!wrap) return;
+      const gap = 20;
+      const width = (wrap.offsetWidth - gap * (perView - 1)) / perView;
+      setSlideWidth(width + gap);
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [perView]);
+
+  const next = () => setIndex((i) => (i >= maxIndex ? 0 : i + 1));
+  const prev = () => setIndex((i) => (i <= 0 ? maxIndex : i - 1));
+
+  return (
+    <div className={`${styles.page} ${playfair.variable} ${cormorant.variable} ${poppins.variable}`}>
+
+      {/* ============ HERO ============ */}
+      <section className={styles.hero}>
+        <div className={`${styles.container} ${styles.heroGrid}`}>
+          <div className={styles.heroCopy}>
+            <div className={`${styles.heroName} ${styles.script}`} style={{ fontFamily: "var(--font-cormorant)" }}>
+              Ana Vitória Lúcio
+            </div>
+            <h1 className={styles.heroTitle}>
+              Estratégias nutricionais baseadas na sua realidade para você{" "}
+              <b><em>emagrecer</em></b> e ter <b><em>resultados reais</em></b>.
+            </h1>
+            <p className={styles.heroDesc}>
+              Você já tentou de tudo — e o peso voltou. O problema nunca foi sua
+              força de vontade. Foi a falta de um plano feito pro seu corpo, sua
+              rotina e sua vida real.
+            </p>
+            <div className={styles.heroCta}>
+              <a href="#cta" className={styles.btn}>
+                Quero resultado de vez
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          
+        </div>
+      </section>
+
+      {/* ============ BENEFITS ============ */}
+      <section className={styles.benefits}>
+        <div className={styles.container}>
+          <div className={styles.benefitsTitle}>
+            <h2 className={styles.eyebrow}>
+              Emagreça de Forma Inteligente e Alcance
+              <br />
+              Sua Melhor Performance
+            </h2>
+            <p className={styles.lede}>
+              Seu objetivo é emagrecer? Com um acompanhamento nutricional
+              personalizado, você aprende a emagrecer de forma saudável, ganhar
+              mais disposição e potencializar seu desempenho físico.
+            </p>
+          </div>
+
+          <div className={styles.cardRow}>
+            <div className={styles.card}>
+              <div className={styles.iconCircle}>
+                <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </div>
+              <h3>Plano Alimentar Personalizado</h3>
+              <p>Nada de dietas prontas. Seu plano alimentar é desenvolvido de acordo com sua rotina, preferências, objetivos e necessidades, tornando o processo mais leve e eficiente.</p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.iconCircle}>
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M6 6l1 12a2 2 0 002 2h6a2 2 0 002-2l1-12M9 10v6M15 10v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </div>
+              <h3>Emagreça com Saúde</h3>
+              <p>Conquiste a redução de gordura corporal de forma saudável, preservando sua massa muscular e criando hábitos alimentares que você consegue manter no dia a dia.</p>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.iconCircle}>
+                <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" /><path d="M8 9h8M8 13h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+              </div>
+              <h3>Mudança de Hábitos</h3>
+              <p>Aprenda a fazer escolhas conscientes, sem restrições extremas, construindo uma alimentação equilibrada que proporciona resultados duradouros e mais qualidade de vida.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ ABOUT ============ */}
+      <section className={styles.about}>
+        <div className={`${styles.container} ${styles.aboutGrid}`}>
+          <div>
+            <h2 className={styles.eyebrow}>Quem sou Eu?</h2>
+            <p>
+              Sou nutricionista graduada com pós-graduação em Nutrição Esportiva, e
+              trabalho na fronteira entre os dois mundos: o{" "}
+              <strong>emagrecimento saudável</strong> e a{" "}
+              <strong>performance física</strong>. Isso significa que seu plano
+              alimentar não é genérico — ele é calculado a partir do seu gasto
+              energético, sua rotina de treino, seus exames e sua relação com a
+              comida.
+            </p>
+            <p>
+              Atendo tanto quem está começando a se exercitar e quer perder
+              gordura sem perder energia no dia a dia, quanto atletas amadores e
+              avançados que precisam de estratégias de bulking, cutting e
+              periodização nutricional alinhadas ao calendário de treinos.
+            </p>
+
+            <div className={styles.aboutCreds}>
+              <div className={styles.cred}>
+                <div className={styles.iconCircle}>
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M6 11v4c0 1.5 2.7 3 6 3s6-1.5 6-3v-4" stroke="currentColor" strokeWidth="1.5" /></svg>
+                </div>
+                <div>
+                  <b style={{ fontFamily: "var(--font-cormorant)" }}>Pós em Nutrição Esportiva</b>
+                  <span>Formação específica em suplementação e performance.</span>
+                </div>
+              </div>
+              <div className={styles.cred}>
+                <div className={styles.iconCircle}>
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
+                </div>
+                <div>
+                  <b style={{ fontFamily: "var(--font-cormorant)" }}>Registro ativo CRN</b>
+                  <span>Atuação clínica regulamentada e responsável.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Troque por <Image src="/ana-vitoria/about.jpg" alt="Ana Vitória Lúcio" fill /> dentro de um wrapper com position:relative */}
+          <div className={styles.aboutPhoto}>
+            <Image src="/public/imagens/Img-about.png" alt="oio" fill />
+          </div>
+        </div>
+      </section>
+
+      {/* ============ PARA QUEM ============ */}
+      <section className={styles.audience}>
+        <div className={styles.container}>
+          <div className={styles.audienceTitle}>
+            <h2 className={styles.eyebrow}>
+              Para quem é o Acompanhamento?
+            </h2>
+            <p className={styles.lede}>
+              Seja para emagrecer, ganhar massa muscular, melhorar seu desempenho
+              esportivo ou simplesmente cuidar melhor da saúde, o acompanhamento é
+              totalmente adaptado às suas necessidades.
+            </p>
+          </div>
+
+          <div className={styles.audienceGrid}>
+            <div className={styles.audienceItem}>
+              <h3>Emagrecer</h3>
+              <p>Redução de gordura corporal preservando massa muscular.</p>
+            </div>
+            <div className={styles.audienceItem}>
+              <h3>Ganhar Massa Muscular</h3>
+              <p>Hipertrofia com alimentação adequada e eficiente.</p>
+            </div>
+            <div className={`${styles.audienceItem} ${styles.noBorderRight}`}>
+              <h3>Melhorar Performance</h3>
+              <p>Nutrição específica para atletas e praticantes de atividade física.</p>
+            </div>
+            <div className={`${styles.audienceItem} ${styles.noBorderRight}`}>
+              <h3>Mais Saúde</h3>
+              <p>Controle alimentar visando qualidade de vida e prevenção.</p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* ============ RESULTS CAROUSEL ============ */}
+      <section className={styles.results}>
+        <div className={styles.container}>
+          <h2 className={styles.eyebrow}>Resultados</h2>
+          <p className={styles.lede}>Os resultados dos meus clientes falam mais que mil palavras.</p>
+
+          <div className={styles.carousel}>
+            <button className={styles.carouselBtn} onClick={prev} aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+
+            <div className={styles.carouselTrackWrap} ref={trackWrapRef}>
+              <div
+                className={styles.carouselTrack}
+                style={{ transform: `translateX(-${index * slideWidth}px)` }}
+              >
+                {results.map((r) => (
+                  <div key={r.id} className={styles.carouselSlide}>
+                    {/* Troque por <Image src={r.src} alt={r.label} fill /> */}
+                    <span>{r.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button className={styles.carouselBtn} onClick={next} aria-label="Próximo">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+          </div>
+        </div>
+
+      {/* <div className={styles.scrollCue}>
+          <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </div> */}
+      </section>
+
+      {/* ============ O QUE MUDA ============ */}
+      <section className={styles.changes}>
+        <div className={styles.container}>
+          <h2 className={styles.changesTitle}>
+            O que muda no seu Acompanhamento?
+          </h2>
+          <p className={styles.changesSub}>
+            Detalhes que fazem diferença entre um plano que você segue por uma
+            semana e um plano que vira estilo de vida.
+          </p>
+
+          <div className={styles.changesRow}>
+            <div className={styles.changeItem}>
+              <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>1</div>
+              <h3>Plano 100% individual</h3>
+              <p>Nada de dieta de gaveta. Cada cardápio é montado a partir dos seus exames, sua rotina e suas preferências alimentares.</p>
+            </div>
+            <div className={styles.changeItem}>
+              <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>2</div>
+              <h3>Foco em adesão</h3>
+              <p>Refeições realistas para quem trabalha, treina e tem vida social — sem depender da força de vontade infinita.</p>
+            </div>
+            <div className={styles.changeItem}>
+              <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>3</div>
+              <h3>Suplementação orientada</h3>
+              <p>Indicação de suplementos apenas quando fazem sentido clínico, com base em evidência científica atual.</p>
+            </div>
+            <div className={styles.changeItem}>
+              <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>4</div>
+              <h3>Suporte entre consultas</h3>
+              <p>Canal direto para dúvidas do dia a dia, para você nunca ficar perdido entre uma consulta e outra.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ FINAL CTA ============ */}
+      <section className={styles.finalCta} id="cta">
+        <div className={`${styles.container} ${styles.finalGrid}`}>
+          <div className={styles.finalCopy}>
+            <h1 className={styles.heroTitle}>
+              Sua próxima fase começa com um plano feito para <b><em>você</em></b>.
+            </h1>
+            <p>
+              Agende sua avaliação inicial e receba um plano alimentar construído
+              a partir do seu objetivo, sua rotina e seus exames.
+            </p>
+            <div className={styles.finalCtaBtn}>
+              <a href="#" className={styles.btn}>
+                Agendar consulta
+                <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Troque por <Image src="/ana-vitoria/cta.jpg" alt="Ana Vitória Lúcio" fill /> dentro de um wrapper com position:relative */}
+          
+        </div>
+      </section>
+
+      <footer className={styles.footer}>
+        © 2026 Ana Vitória Lúcio — Nutrição Esportiva & Emagrecimento. Todos os direitos reservados.
+      </footer>
+    </div>
+  );
+}
