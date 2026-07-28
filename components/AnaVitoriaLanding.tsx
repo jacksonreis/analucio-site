@@ -119,7 +119,6 @@ export default function AnaVitoriaLanding() {
           <div className={styles.benefitsTitle}>
             <h2 className={styles.eyebrow}>
               Emagreça de Forma Inteligente e Alcance
-              <br />
               Sua Melhor Performance
             </h2>
             <p className={styles.lede}>
