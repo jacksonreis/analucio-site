@@ -544,8 +544,7 @@
     background: url('/imagens/Background-Hero-Mobile.png');
     background-size: cover;
     background-position: center center;
-    padding-top:36px;
-    min-height: 780px;
+    height: 600px;
   }
   .heroTitle{font-size:1.8rem;}
   .hero p{
@@ -570,7 +569,7 @@
   }
 
   .finalGrid {
-    padding-top: 470px;
+    padding-top: 2000px;
   }
   .finalCta{
   background: url('/imagens/Section7-Mobile.png');
