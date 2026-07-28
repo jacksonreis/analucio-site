@@ -550,7 +550,7 @@
 
 @media (max-width:640px){
   .hero{
-    background: url('/imagens/Background-Hero-Mobile.png');
+    background: url('/imagens/Background-Hero-Mobile.jpg');
     background-size: cover;
     background-position: center center;
     height: 600px;
