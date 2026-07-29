@@ -69,7 +69,7 @@
 /* ============ HERO ============ */
 .hero{
   position:absolute;
-  background: url('/imagens/Background-Hero.png');
+  background: url('/imagens/Background-Hero.jpg');
   align-items: center;
   display: flex;
   overflow:hidden;
