@@ -199,7 +199,7 @@ export default function AnaVitoriaLanding() {
 
           {/* Troque por <Image src="/ana-vitoria/about.jpg" alt="Ana Vitória Lúcio" fill /> dentro de um wrapper com position:relative */}
           <div className={styles.aboutPhoto}>
-            <Image src="/public/imagens/Img-about.png" alt="oio" fill />
+            
           </div>
         </div>
       </section>
@@ -246,29 +246,7 @@ export default function AnaVitoriaLanding() {
           <h2 className={styles.eyebrow}>Resultados</h2>
           <p className={styles.lede}>Os resultados dos meus clientes falam mais que mil palavras.</p>
 
-          <div className={styles.carousel}>
-            <button className={styles.carouselBtn} onClick={prev} aria-label="Anterior">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </button>
-
-            <div className={styles.carouselTrackWrap} ref={trackWrapRef}>
-              <div
-                className={styles.carouselTrack}
-                style={{ transform: `translateX(-${index * slideWidth}px)` }}
-              >
-                {results.map((r) => (
-                  <div key={r.id} className={styles.carouselSlide}>
-                    {/* Troque por <Image src={r.src} alt={r.label} fill /> */}
-                    <span>{r.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <button className={styles.carouselBtn} onClick={next} aria-label="Próximo">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </button>
-          </div>
+          
         </div>
 
       {/* <div className={styles.scrollCue}>
