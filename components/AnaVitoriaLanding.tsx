@@ -10,6 +10,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselDots,
 } from "@/components/ui/carousel";
 import Image from 'next/image';
 
@@ -233,8 +234,9 @@ export default function AnaVitoriaLanding() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden sm:flex" />
+            <CarouselNext className="hidden sm:flex" />
+            <CarouselDots className="sm:hidden" />
           </Carousel>
           
         </div>
