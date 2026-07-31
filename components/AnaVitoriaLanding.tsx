@@ -1,8 +1,16 @@
 "use client";
 
+
 import { useEffect, useRef, useState } from "react";
 import { Playfair_Display, Cormorant_Garamond, Poppins } from "next/font/google";
 import styles from "./AnaVitoriaLanding.module.css";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import Image from 'next/image';
 
 // ---- Fonts (troque pelos imports em app/layout.tsx se preferir carregar globalmente) ----
@@ -32,53 +40,14 @@ const results = [
   { id: 2, label: "Antes / Depois — Cliente 2" },
   { id: 3, label: "Antes / Depois — Cliente 3" },
   { id: 4, label: "Antes / Depois — Cliente 4" },
+  { id: 5, label: "Antes / Depois — Cliente 5" },
+  { id: 6, label: "Antes / Depois — Cliente 6" },
+  { id: 7, label: "Antes / Depois — Cliente 7" },
+  { id: 8, label: "Antes / Depois — Cliente 8" },
 ];
 
-function useSlidesPerView() {
-  const [perView, setPerView] = useState(3);
-
-  useEffect(() => {
-    function calc() {
-      const w = window.innerWidth;
-      if (w <= 640) setPerView(1);
-      else if (w <= 860) setPerView(2);
-      else setPerView(3);
-    }
-    calc();
-    window.addEventListener("resize", calc);
-    return () => window.removeEventListener("resize", calc);
-  }, []);
-
-  return perView;
-}
 
 export default function AnaVitoriaLanding() {
-  const perView = useSlidesPerView();
-  const [index, setIndex] = useState(0);
-  const trackWrapRef = useRef<HTMLDivElement>(null);
-  const [slideWidth, setSlideWidth] = useState(0);
-
-  const maxIndex = Math.max(0, results.length - perView);
-
-  useEffect(() => {
-    if (index > maxIndex) setIndex(maxIndex);
-  }, [maxIndex, index]);
-
-  useEffect(() => {
-    function measure() {
-      const wrap = trackWrapRef.current;
-      if (!wrap) return;
-      const gap = 20;
-      const width = (wrap.offsetWidth - gap * (perView - 1)) / perView;
-      setSlideWidth(width + gap);
-    }
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [perView]);
-
-  const next = () => setIndex((i) => (i >= maxIndex ? 0 : i + 1));
-  const prev = () => setIndex((i) => (i <= 0 ? maxIndex : i - 1));
 
   return (
     <div className={`${styles.page} ${playfair.variable} ${cormorant.variable} ${poppins.variable}`}>
@@ -245,7 +214,28 @@ export default function AnaVitoriaLanding() {
         <div className={styles.container}>
           <h2 className={styles.eyebrow}>Resultados</h2>
           <p className={styles.lede}>Os resultados dos meus clientes falam mais que mil palavras.</p>
-
+          <Carousel className="w-full max-w-5xl mx-auto mt-10">
+            <CarouselContent>
+              {results.map((result) => (
+                <CarouselItem
+                  key={result.id}
+                  className="basis-full sm:basis-1/2 md:basis-1/3"
+                >
+                  <div className="relative aspect-[9/16] rounded-xl overflow-hidden border">
+                    {/* Troque pela imagem real do resultado */}
+                    <Image
+                      src={`/imagens/results/image${result.id}.jpg`}
+                      alt={result.label}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
           
         </div>
 
@@ -303,7 +293,7 @@ export default function AnaVitoriaLanding() {
             </p>
             <div className={styles.finalCtaBtn}>
               <a href="#" className={styles.btn}>
-                Agendar consulta
+                Agendar minha consulta
                 <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -317,7 +307,9 @@ export default function AnaVitoriaLanding() {
       </section>
 
       <footer className={styles.footer}>
-        © 2026 Ana Vitória Lúcio — Nutrição Esportiva & Emagrecimento. Todos os direitos reservados.
+        © 2026 Ana Vitória Lúcio — Todos os direitos reservados.
+        <br />
+        Site feito por <b>Jackson Reis</b>.
       </footer>
     </div>
   );

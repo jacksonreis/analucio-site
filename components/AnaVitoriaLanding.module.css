@@ -398,7 +398,7 @@
 /* ============ WHAT CHANGES ============ */
 .changes{
   background-color: var(--background-color);
-  padding:265px 0;
+  padding:130px 0 265px 0;
 }
 .changesTitle{
   font-style:italic;
@@ -496,10 +496,10 @@
 }
 
 .footer{
-  background:var(--brown-ink);
-  color:rgba(255,255,255,0.6);
+  background:var(--background-color);
+  color: #947E6E;
   text-align:center;
-  padding:26px 12px;
+  padding: 90px 20px;
   font-size:0.78rem;
 }
 
@@ -667,7 +667,7 @@
   }
 
   .finalGrid {
-    padding-top: 250px;
+    padding-top: 350px;
   }
   .finalCta{
   background: url('/imagens/Section7-mobile.webp');
@@ -676,7 +676,5 @@
   padding-top:60px;
   height: 850px;
 }
-  .finalCta p {
-  display: none;
-}
+
 }
