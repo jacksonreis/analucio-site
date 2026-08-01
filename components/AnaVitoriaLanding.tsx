@@ -150,8 +150,8 @@ export default function AnaVitoriaLanding() {
                 <div className={styles.iconCircle}>
                   <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M6 11v4c0 1.5 2.7 3 6 3s6-1.5 6-3v-4" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </div>
-                <div>
-                  <b style={{ fontFamily: "var(--font-cormorant)" }}>Pós em Nutrição Esportiva</b>
+                <div >
+                  <p>Pós em Nutrição Esportiva</p>
                   <span>Formação específica em suplementação e performance.</span>
                 </div>
               </div>
@@ -160,7 +160,7 @@ export default function AnaVitoriaLanding() {
                   <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
                 </div>
                 <div>
-                  <b style={{ fontFamily: "var(--font-cormorant)" }}>Registro ativo CRN</b>
+                  <p>Registro ativo CRN</p>
                   <span>Atuação clínica regulamentada e responsável.</span>
                 </div>
               </div>

@@ -230,7 +230,7 @@
   box-shadow:var(--shadow-soft);
 }
 .iconCircle{
-  width:38px;height:38px;
+  width:42px;height:42px;
   border-radius:50%;
   border:1.5px solid var(--terracotta);
   display:flex;align-items:center;justify-content:center;
@@ -281,12 +281,31 @@
   color: #0000;
   background-clip: text;
   font-weight:600;
-  }
+}
 .aboutCreds{margin-top:26px; display:flex; flex-direction:column; gap:14px;}
-.cred{display:flex; gap:12px; align-items:flex-start;}
-.cred .iconCircle{margin-bottom:0; flex-shrink:0;}
-.cred b{display:block; font-style:italic; color:var(--terracotta-dark); font-size:1.05rem;}
-.cred span{font-size:0.8rem; color:var(--color-p);}
+.cred{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.cred .iconCircle{
+  margin-bottom:0; 
+  flex-shrink:0;
+}
+.cred p{
+  font-family: var(--font-merriweather);
+  display:block; 
+  font-style:italic; 
+  background: var(--linear-gold); 
+  color: #0000;
+  background-clip: text;
+  font-size:0.9rem;
+  margin-bottom: 0px;
+}
+.cred span{
+  font-size:0.8rem;
+   color:var(--color-p);
+}
 .aboutPhoto{
 
   background: url('/imagens/ana-about.webp');
@@ -566,7 +585,7 @@
   }
 
   .finalGrid{
-    padding-top: 390px;
+    padding-top: 440px;
     grid-template-columns:1fr;
     text-align:center;
   }
@@ -590,8 +609,8 @@
 
   .finalCta{
   background: url('/imagens/Section7-tablet.webp');
-  background-position: center center;
   background-size: cover;
+  background-position: -120px;
   }
   .heroGrid{
     padding-top: 375px;

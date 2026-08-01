@@ -265,11 +265,11 @@ function CarouselDots({ className }: { className?: string }) {
           type="button"
           onClick={() => api?.scrollTo(index)}
           className={cn(
-            "h-2 rounded-full transition-all",
-            index === selectedIndex
-              ? "w-6 bg-primary"
-              : "w-2 bg-primary/30 hover:bg-primary/50"
-          )}
+  "h-2 rounded-full transition-all",
+  index === selectedIndex
+    ? "w-6 bg-[#C76826]"
+    : "w-2 bg-[#C76826]/30 hover:bg-[#C76826]/50"
+)}
           aria-label={`Ir para o slide ${index + 1}`}
         />
       ))}
