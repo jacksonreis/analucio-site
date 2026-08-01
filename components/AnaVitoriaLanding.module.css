@@ -466,8 +466,15 @@
   border:1px solid rgba(148, 126, 110, 0.3);
   background-color: var(--background-color);
   padding:40px 25px;
-  box-shadow:var(--shadow-soft)
+  transition: transform .25s, box-shadow .25s;
 }
+
+.changeItem:hover {
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-soft);
+}
+
+
 .changeNum{
   font-size:1.1rem;
   color:var(--terracotta);

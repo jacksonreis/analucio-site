@@ -9,7 +9,7 @@ type AnimateInProps = {
   children: ReactNode;
   delay?: number;
   className?: string;
-  direction?: "up" | "down" | "left" | "right" | "fade";
+  direction?: "up" | "down" | "left" | "right" | "fade" | "scale" | "blur" ;
 };
 
 const variantsMap: Record<string, Variants> = {
@@ -18,6 +18,11 @@ const variantsMap: Record<string, Variants> = {
   left: { hidden: { opacity: 0, x: 40 }, visible: { opacity: 1, x: 0 } },
   right: { hidden: { opacity: 0, x: -40 }, visible: { opacity: 1, x: 0 } },
   fade: { hidden: { opacity: 0 }, visible: { opacity: 1 } },
+  scale: { hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } },
+  blur: {
+  hidden: { opacity: 0, filter: "blur(8px)" },
+  visible: { opacity: 1, filter: "blur(0px)" },
+},
 };
 
 export function AnimateIn({
