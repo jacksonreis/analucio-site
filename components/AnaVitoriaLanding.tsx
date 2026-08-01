@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Playfair_Display, Cormorant_Garamond, Poppins } from "next/font/google";
 import styles from "./AnaVitoriaLanding.module.css";
+import { AnimateIn } from "@/components/AnimateIn";
 import {
   Carousel,
   CarouselContent,
@@ -57,6 +58,7 @@ export default function AnaVitoriaLanding() {
       <section className={styles.hero}>
         <div className={`${styles.container} ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
+            <AnimateIn direction="up" delay={0.4}>
             <div className={`${styles.heroName} ${styles.script}`} style={{ fontFamily: "var(--font-cormorant)" }}>
               Ana Vitória Lúcio
             </div>
@@ -64,11 +66,15 @@ export default function AnaVitoriaLanding() {
               Estratégias nutricionais baseadas na sua realidade para você{" "}
               <b><em>emagrecer</em></b> e ter <b><em>resultados reais</em></b>.
             </h1>
+            </AnimateIn>
+            <AnimateIn direction="up" delay={0.4}>
             <p className={styles.heroDesc}>
               Você já tentou de tudo — e o peso voltou. O problema nunca foi sua
               força de vontade. Foi a falta de um plano feito pro seu corpo, sua
               rotina e sua vida real.
             </p>
+            </AnimateIn>
+            <AnimateIn direction="up" delay={0.4}>
             <div className={styles.heroCta}>
               <a href="#cta" className={styles.btn}>
                 Quero resultado de vez
@@ -77,6 +83,7 @@ export default function AnaVitoriaLanding() {
                 </svg>
               </a>
             </div>
+            </AnimateIn>
           </div>
 
           
@@ -87,15 +94,19 @@ export default function AnaVitoriaLanding() {
       <section className={styles.benefits}>
         <div className={styles.container}>
           <div className={styles.benefitsTitle}>
+            <AnimateIn direction="fade" delay={0.4}>
             <h2 className={styles.eyebrow}>
               Emagreça de Forma Inteligente e Alcance
               Sua Melhor Performance
             </h2>
+            </AnimateIn>
+            <AnimateIn direction="up" delay={0.4}>
             <p className={styles.lede}>
               Seu objetivo é emagrecer? Com um acompanhamento nutricional
               personalizado, você aprende a emagrecer de forma saudável, ganhar
               mais disposição e potencializar seu desempenho físico.
             </p>
+            </AnimateIn>
           </div>
 
           <div className={styles.cardRow}>
@@ -150,7 +161,7 @@ export default function AnaVitoriaLanding() {
                 <div className={styles.iconCircle}>
                   <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4-8 4-8-4 8-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M6 11v4c0 1.5 2.7 3 6 3s6-1.5 6-3v-4" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </div>
-                <div >
+                <div className={styles.textForm}>
                   <p>Pós em Nutrição Esportiva</p>
                   <span>Formação específica em suplementação e performance.</span>
                 </div>
@@ -159,7 +170,7 @@ export default function AnaVitoriaLanding() {
                 <div className={styles.iconCircle}>
                   <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
                 </div>
-                <div>
+                <div className={styles.textForm}>
                   <p>Registro ativo CRN</p>
                   <span>Atuação clínica regulamentada e responsável.</span>
                 </div>
@@ -213,8 +224,8 @@ export default function AnaVitoriaLanding() {
       {/* ============ RESULTS CAROUSEL ============ */}
       <section className={styles.results}>
         <div className={styles.container}>
-          <h2 className={styles.eyebrow}>Resultados</h2>
-          <p className={styles.lede}>Os resultados dos meus clientes falam mais que mil palavras.</p>
+          <h2 className={styles.eyebrow}>Resultados Reais</h2>
+          <p className={styles.lede}>Os resultados que você vê aqui são consequência de um método personalizado, construído com planejamento, constância e acompanhamento próximo. Cada evolução representa um passo em direção a uma vida mais saudável</p>
           <Carousel className="w-full max-w-5xl mx-auto mt-10">
             <CarouselContent>
               {results.map((result) => (
@@ -249,10 +260,10 @@ export default function AnaVitoriaLanding() {
       {/* ============ O QUE MUDA ============ */}
       <section className={styles.changes}>
         <div className={styles.container}>
-          <h2 className={styles.changesTitle}>
+          <h2 className={styles.eyebrow}>
             O que muda no seu Acompanhamento?
           </h2>
-          <p className={styles.changesSub}>
+          <p className={styles.lede}>
             Detalhes que fazem diferença entre um plano que você segue por uma
             semana e um plano que vira estilo de vida.
           </p>

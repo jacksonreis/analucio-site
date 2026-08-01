@@ -57,7 +57,7 @@
 
 .lede{
   text-align:center;
-  max-width:640px;
+  max-width:700px;
   margin:20px auto 0;
   color:var(--color-p);
   font-size: 1.1rem;
@@ -205,7 +205,7 @@
   padding:150px 0;
 }
 .benefitsTitle{
-  margin-bottom:60px;
+  margin-bottom:50px;
 }
 .cardRow{
   display:grid;
@@ -229,6 +229,20 @@
   transform:translateY(-6px);
   box-shadow:var(--shadow-soft);
 }
+
+.iconQuadrado {
+  width:42px;height:42px;
+  border:1.5px solid var(--terracotta);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+  color:var(--terracotta-dark);
+}
+
+.iconQuadrado svg{
+  width:18px;
+  height:18px;
+}
+
 .iconCircle{
   width:42px;height:42px;
   border-radius:50%;
@@ -237,7 +251,10 @@
   margin-bottom:16px;
   color:var(--terracotta-dark);
 }
-.iconCircle svg{width:18px;height:18px;}
+.iconCircle svg{
+  width:18px;
+  height:18px;
+}
 .card h3, .audienceItem h3, .changesRow h3{
   background: var(--linear-gold);
   color: #0000;
@@ -247,6 +264,12 @@
   font-size:1.1rem;
   margin-bottom:10px;
 }
+
+.textForm {
+  padding-top: 2px;
+  display: grid;
+}
+
 .card p{
   font-size:1.05rem;
   color:var(--color-p);
@@ -268,7 +291,7 @@
   text-align: left;
   font-style:italic;
   font-size:clamp(1.6rem,3vw,2.6rem);
-  margin-bottom:22px;
+  margin-bottom:23px;
 }
 .about p{
   font-size: 1.1rem;
@@ -313,6 +336,8 @@
   background-size: cover;
   position: relative;
   aspect-ratio:3/3.8;
+  border: 1px solid #0000;
+  border-image: var(--linear-gold) 1;
 
   display:flex;align-items:center;justify-content:center;
   color:#8a5f31;
@@ -337,9 +362,8 @@
   display:grid;
   grid-template-columns:repeat(2,1fr);
   border:1px solid var(--line);
-  border-radius:14px;
   overflow:hidden;
-  background:rgba(255,255,255,0.4);
+  background-color: var(--background-color);
 }
 .audienceItem{
   padding:60px 35px;
@@ -433,6 +457,7 @@
   line-height: 140%;
 }
 .changesRow{
+  margin-top: 50px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:24px;
@@ -441,6 +466,7 @@
   border:1px solid rgba(148, 126, 110, 0.3);
   background-color: var(--background-color);
   padding:40px 25px;
+  box-shadow:var(--shadow-soft)
 }
 .changeNum{
   font-size:1.1rem;
@@ -620,7 +646,7 @@
 /*  .cardRow{
     grid-template-columns:1fr;
   } */
-  .audienceGrid{grid-template-columns:1fr;}
+  .audienceGrid{grid-template-columns:2fr, 2fr;}
   .audienceItem{border-right:none !important;}
   .carouselSlide{flex:0 0 calc(50% - 10px);}
   .heroBadges{position:static; flex-direction:row; justify-content:center; flex-wrap:wrap; margin-bottom:16px;}
@@ -634,8 +660,14 @@
     height: 600px;
   }
 
+  .audienceGrid{grid-template-columns:1fr;}
+
   .cardRow{
     grid-template-columns:1fr;
+  }
+
+  .audienceItem {
+    padding: 40px 25px;
   }
 
   .heroGrid{
@@ -643,8 +675,9 @@
   }
 
   .eyebrow {
-    font-size: 1.4rem;
-    
+    font-size: 1.5rem;
+    text-align: left;
+    padding-left: 2px;
   }
 
   .aboutPhoto {
@@ -657,6 +690,7 @@
 
   .container p {
     font-size: 16px;
+    text-align: left;
   }
 
   .heroTitle{
@@ -665,7 +699,15 @@
   .hero p{
     display: none;
     font-size: 16px;
+  
   }
+
+  .cred p{
+
+  font-size:0.9rem;
+
+}
+
   .changesRow{grid-template-columns:1fr;}
   .carouselSlide{flex:0 0 100%;}
   .carousel{gap:8px;}
@@ -694,6 +736,10 @@
   background-size: cover;
   padding-top:60px;
   height: 850px;
+}
+
+.finalCopy p {
+  text-align: center;
 }
 
 }
