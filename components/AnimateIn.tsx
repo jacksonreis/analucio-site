@@ -10,6 +10,7 @@ type AnimateInProps = {
   delay?: number;
   className?: string;
   direction?: "up" | "down" | "left" | "right" | "fade" | "scale" | "blur" ;
+  once?: boolean; // novo
 };
 
 const variantsMap: Record<string, Variants> = {
@@ -30,13 +31,14 @@ export function AnimateIn({
   delay = 0,
   className,
   direction = "up",
+  once = true, // padrão mantém comportamento atual
 }: AnimateInProps) {
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once, amount: 0.2 }}
       variants={variantsMap[direction]}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
     >

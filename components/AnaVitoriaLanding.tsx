@@ -108,8 +108,9 @@ export default function AnaVitoriaLanding() {
             </p>
             </AnimateIn>
           </div>
-          <AnimateIn direction="fade" delay={0.6}>
+          
           <div className={styles.cardRow}>
+            <AnimateIn direction="fade" delay={0.6} once={false}>
             <div className={styles.card}>
               <div className={styles.iconCircle}>
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -117,6 +118,8 @@ export default function AnaVitoriaLanding() {
               <h3>Plano Alimentar Personalizado</h3>
               <p>Nada de dietas prontas. Seu plano alimentar é desenvolvido de acordo com sua rotina, preferências, objetivos e necessidades, tornando o processo mais leve e eficiente.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false}>
             <div className={styles.card}>
               <div className={styles.iconCircle}>
                 <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M6 6l1 12a2 2 0 002 2h6a2 2 0 002-2l1-12M9 10v6M15 10v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -124,6 +127,8 @@ export default function AnaVitoriaLanding() {
               <h3>Emagreça com Saúde</h3>
               <p>Conquiste a redução de gordura corporal de forma saudável, preservando sua massa muscular e criando hábitos alimentares que você consegue manter no dia a dia.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false}>
             <div className={styles.card}>
               <div className={styles.iconCircle}>
                 <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" /><path d="M8 9h8M8 13h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
@@ -131,8 +136,9 @@ export default function AnaVitoriaLanding() {
               <h3>Mudança de Hábitos</h3>
               <p>Aprenda a fazer escolhas conscientes, sem restrições extremas, construindo uma alimentação equilibrada que proporciona resultados duradouros e mais qualidade de vida.</p>
             </div>
+            </AnimateIn>
           </div>
-          </AnimateIn>
+          
         </div>
       </section>
 
@@ -140,7 +146,7 @@ export default function AnaVitoriaLanding() {
       <section className={styles.about}>
         <div className={`${styles.container} ${styles.aboutGrid}`}>
           <div>
-            <AnimateIn direction="right" delay={0.8}>
+            <AnimateIn direction="right" delay={0.6}>
             <h2 className={styles.eyebrow}>Quem sou Eu?</h2>
             <p>
               Sou nutricionista graduada com pós-graduação em Nutrição Esportiva, e
@@ -171,7 +177,7 @@ export default function AnaVitoriaLanding() {
                 </div>
               </div>
               </AnimateIn>
-              <AnimateIn direction="up" delay={0.7}>
+              <AnimateIn direction="up" delay={0.6}>
               <div className={styles.cred}>
                 <div className={styles.iconCircle}>
                   <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" strokeWidth="1.5" /><path d="M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
