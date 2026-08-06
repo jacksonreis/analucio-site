@@ -110,7 +110,7 @@ export default function AnaVitoriaLanding() {
           </div>
           
           <div className={styles.cardRow}>
-            <AnimateIn direction="fade" delay={0.6} once={false}>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.card}>
               <div className={styles.iconCircle}>
                 <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -119,7 +119,7 @@ export default function AnaVitoriaLanding() {
               <p>Nada de dietas prontas. Seu plano alimentar é desenvolvido de acordo com sua rotina, preferências, objetivos e necessidades, tornando o processo mais leve e eficiente.</p>
             </div>
             </AnimateIn>
-            <AnimateIn direction="fade" delay={0.6} once={false}>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.card}>
               <div className={styles.iconCircle}>
                 <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M6 6l1 12a2 2 0 002 2h6a2 2 0 002-2l1-12M9 10v6M15 10v6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -128,7 +128,7 @@ export default function AnaVitoriaLanding() {
               <p>Conquiste a redução de gordura corporal de forma saudável, preservando sua massa muscular e criando hábitos alimentares que você consegue manter no dia a dia.</p>
             </div>
             </AnimateIn>
-            <AnimateIn direction="fade" delay={0.6} once={false}>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.card}>
               <div className={styles.iconCircle}>
                 <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" /><path d="M8 9h8M8 13h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
@@ -148,6 +148,8 @@ export default function AnaVitoriaLanding() {
           <div>
             <AnimateIn direction="right" delay={0.6}>
             <h2 className={styles.eyebrow}>Quem sou Eu?</h2>
+            </AnimateIn>
+            <AnimateIn direction="up" delay={0.6}>
             <p>
               Sou nutricionista graduada com pós-graduação em Nutrição Esportiva, e
               trabalho na fronteira entre os dois mundos: o{" "}
@@ -192,7 +194,7 @@ export default function AnaVitoriaLanding() {
           </div>
 
           {/* Troque por <Image src="/ana-vitoria/about.jpg" alt="Ana Vitória Lúcio" fill /> dentro de um wrapper com position:relative */}
-          <AnimateIn direction="scale" delay={0.5}>
+          <AnimateIn direction="left" delay={0.5}>
           <div className={styles.aboutPhoto}>
             
           </div>
@@ -217,26 +219,32 @@ export default function AnaVitoriaLanding() {
             </p>
             </AnimateIn>
           </div>
-          <AnimateIn direction="fade" delay={0.6}>
           <div className={styles.audienceGrid}>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.audienceItem}>
               <h3>Emagrecer</h3>
               <p>Redução de gordura corporal preservando massa muscular.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.audienceItem}>
               <h3>Ganhar Massa Muscular</h3>
               <p>Hipertrofia com alimentação adequada e eficiente.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={`${styles.audienceItem} ${styles.noBorderRight}`}>
               <h3>Melhorar Performance</h3>
               <p>Nutrição específica para atletas e praticantes de atividade física.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={`${styles.audienceItem} ${styles.noBorderRight}`}>
               <h3>Mais Saúde</h3>
               <p>Controle alimentar visando qualidade de vida e prevenção.</p>
-            </div> 
+            </div>
+            </AnimateIn> 
           </div>
-          </AnimateIn>
         </div>
       </section>
 
@@ -271,7 +279,7 @@ export default function AnaVitoriaLanding() {
             </CarouselContent>
             <CarouselPrevious className="hidden sm:flex" />
             <CarouselNext className="hidden sm:flex" />
-            <CarouselDots className="sm:hidden" />
+            <CarouselDots className="hidden max-[1025px]:flex"/>
           </Carousel>
           </AnimateIn>
           
@@ -296,30 +304,36 @@ export default function AnaVitoriaLanding() {
             semana e um plano que vira estilo de vida.
           </p>
           </AnimateIn>
-          <AnimateIn direction="fade" delay={0.7}>
           <div className={styles.changesRow}>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.changeItem}>
               <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>1</div>
               <h3>Plano 100% individual</h3>
               <p>Nada de dieta de gaveta. Cada cardápio é montado a partir dos seus exames, sua rotina e suas preferências alimentares.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.changeItem}>
               <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>2</div>
               <h3>Foco em adesão</h3>
               <p>Refeições realistas para quem trabalha, treina e tem vida social — sem depender da força de vontade infinita.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.changeItem}>
               <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>3</div>
               <h3>Suplementação orientada</h3>
               <p>Indicação de suplementos apenas quando fazem sentido clínico, com base em evidência científica atual.</p>
             </div>
+            </AnimateIn>
+            <AnimateIn direction="fade" delay={0.6} once={false} className={styles.cardWrapper}>
             <div className={styles.changeItem}>
               <div className={styles.changeNum} style={{ fontFamily: "var(--font-merriweather)" }}>4</div>
               <h3>Suporte entre consultas</h3>
               <p>Canal direto para dúvidas do dia a dia, para você nunca ficar perdido entre uma consulta e outra.</p>
             </div>
+            </AnimateIn>
           </div>
-          </AnimateIn>
         </div>
       </section>
 
