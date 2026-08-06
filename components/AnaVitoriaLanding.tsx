@@ -76,7 +76,7 @@ export default function AnaVitoriaLanding() {
             </AnimateIn>
             <AnimateIn direction="up" delay={0.6}>
             <div className={styles.heroCta}>
-              <a href="#cta" className={styles.btn}>
+              <a href="https://api.whatsapp.com/message/VFHJIRLVZZOQB1?autoload=1&app_absent=0&utm_source=ig" className={styles.btn}>
                 Quero resultado de vez
                 <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -354,7 +354,7 @@ export default function AnaVitoriaLanding() {
             </AnimateIn>
             <AnimateIn direction="blur" delay={0.8}>
             <div className={styles.finalCtaBtn}>
-              <a href="#" className={styles.btn}>
+              <a href="https://api.whatsapp.com/message/VFHJIRLVZZOQB1?autoload=1&app_absent=0&utm_source=ig" className={styles.btn}>
                 Agendar minha consulta
                 <svg viewBox="0 0 24 24" fill="none" width="16" height="16">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
